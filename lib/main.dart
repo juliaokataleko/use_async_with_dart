@@ -25,6 +25,9 @@ Future<void> main() async {
 
   print(todo.title);
   print(todo.toJson());
+
+  // tratamento de excepcoes
+  print(stringToInt("yah"));
 }
 
 Future<void> print4() async {
@@ -40,4 +43,14 @@ Future<Todo> fetch() async {
   var todo = Todo.fromJson(json);
 
   return todo;
+}
+
+int stringToInt(String text) {
+  int value;
+  try {
+    value = int.parse(text);
+  } catch (e) {
+    throw Exception("Invalid number ($text)");
+  }
+  return value;
 }
